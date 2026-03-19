@@ -5,8 +5,8 @@ import QualificationFormSection from '../components/sections/QualificationFormSe
 import RecruitmentSection from '../components/sections/RecruitmentSection'
 import SiteFooter from '../components/sections/SiteFooter'
 import SponsorSection from '../components/sections/SponsorSection'
-import heroImage from '../assets/female-doctor-explaining-diagnosis-her-young-woman-patient.webp'
-import sponsorImage from '../assets/factory-workers-white-lab-suits-black-latex-gloves-working-with-some-modern-equipment-very-clean-room.webp'
+import heroImage from '../assets/doctor-patient.webp'
+import sponsorImage from '../assets/lab-equipment.webp'
 import type { Trial } from '../types/domain'
 
 function HomePage() {
