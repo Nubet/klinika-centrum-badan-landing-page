@@ -1,4 +1,5 @@
 import { footerColumns } from '../../data/siteContent.ts'
+import { Link } from 'react-router-dom'
 import Container from '../layout/Container'
 
 function SiteFooter() {
@@ -23,12 +24,12 @@ function SiteFooter() {
               <ul className="mt-4 space-y-2">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.to}
                       className="text-sm text-white/70 transition duration-200 hover:text-white hover:translate-x-0.5"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

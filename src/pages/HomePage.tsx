@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import BenefitsSection from '../components/sections/BenefitsSection'
 import HeroSection from '../components/sections/HeroSection'
 import QualificationFormSection from '../components/sections/QualificationFormSection'
@@ -11,6 +12,23 @@ import type { Trial } from '../types/domain'
 
 function HomePage() {
   const [selectedArea, setSelectedArea] = useState<Trial['area'] | ''>('')
+  const { pathname, search } = useLocation()
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      return
+    }
+
+    const section = new URLSearchParams(search).get('section')
+
+    if (!section) {
+      return
+    }
+
+    requestAnimationFrame(() => {
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }, [pathname, search])
 
   const handleAreaSelection = (area: Trial['area']) => {
     setSelectedArea(area)

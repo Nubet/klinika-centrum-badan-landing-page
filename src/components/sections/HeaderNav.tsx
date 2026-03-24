@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FlaskConical, Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { navLinks } from '../../data/siteContent.ts'
 import Container from '../layout/Container'
 import clsx from 'clsx'
@@ -27,13 +28,13 @@ function HeaderNav() {
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Nawigacja główna">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 className="rounded-full px-4 py-2 text-sm font-semibold text-white/90 transition-all duration-200 hover:bg-white/10 hover:text-white hover:-translate-y-0.5"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -59,14 +60,14 @@ function HeaderNav() {
           >
             <nav className="flex flex-col gap-2 rounded-3xl border border-white/45 bg-white/95 p-4 shadow-xl backdrop-blur-xl ring-1 ring-black/5">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <Link
+                  key={link.to}
+                  to={link.to}
                   onClick={() => setIsOpen(false)}
                   className="rounded-2xl px-4 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary/5 active:bg-primary/10"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

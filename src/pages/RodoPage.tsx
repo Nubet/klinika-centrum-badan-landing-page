@@ -5,8 +5,6 @@ import { LinkButton } from '../components/ui/Button'
 import { rodoContacts, rodoIntro, rodoSections } from '../data/rodo'
 
 function RodoPage() {
-  const baseUrl = import.meta.env.BASE_URL
-
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(213,220,249,0.3),transparent_40%),radial-gradient(circle_at_bottom,rgba(213,220,249,0.22),transparent_45%),#ffffff]">
       <header className="overflow-hidden rounded-b-3xl bg-[linear-gradient(135deg,rgba(23,48,138,0.95),rgba(23,48,138,0.9))] pb-16">
@@ -24,10 +22,10 @@ function RodoPage() {
               medycznej, kontrahentów oraz kandydatów do pracy.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <LinkButton href={`${baseUrl}#kontakt`} className="w-full sm:w-auto">
+              <LinkButton to="/?section=kontakt" className="w-full sm:w-auto">
                 Skontaktuj się z nami
               </LinkButton>
-              <LinkButton href={baseUrl} variant="outline" className="w-full sm:w-auto">
+              <LinkButton to="/" variant="outline" className="w-full sm:w-auto">
                 Wróć na stronę główną
               </LinkButton>
             </div>

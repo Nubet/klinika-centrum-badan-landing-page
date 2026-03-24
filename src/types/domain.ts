@@ -1,6 +1,6 @@
 export type NavLink = {
   label: string
-  href: string
+  to: string
 }
 
 export type Benefit = {
@@ -23,7 +23,7 @@ export type SponsorCapability = {
 
 export type FooterColumn = {
   title: string
-  links: Array<{ label: string; href: string }>
+  links: Array<{ label: string; to: string }>
 }
 
 export type RodoContact = {

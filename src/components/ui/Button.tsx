@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import { Link, type LinkProps } from 'react-router-dom'
 
 type Variant = 'solid' | 'outline' | 'dark'
 
@@ -11,10 +12,19 @@ type CommonProps = {
 
 type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
-type LinkButtonProps = CommonProps &
+type RouterLinkButtonProps = CommonProps &
+  Omit<LinkProps, 'to' | 'className' | 'children'> & {
+    to: string
+    href?: never
+  }
+
+type AnchorLinkButtonProps = CommonProps &
   AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string
+    to?: never
   }
+
+type LinkButtonProps = RouterLinkButtonProps | AnchorLinkButtonProps
 
 const baseClassName =
   'inline-flex items-center justify-center rounded-[5.875rem] border-2 px-8 py-4 text-base font-bold transition duration-200 focus-visible:outline-none hover:scale-105 active:scale-95'
@@ -48,6 +58,14 @@ export function LinkButton({
   children,
   ...props
 }: LinkButtonProps) {
+  if ('to' in props && props.to) {
+    return (
+      <Link className={clsx(baseClassName, variantClassName[variant], className)} {...props}>
+        {children}
+      </Link>
+    )
+  }
+
   return (
     <a className={clsx(baseClassName, variantClassName[variant], className)} {...props}>
       {children}

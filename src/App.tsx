@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/polityka-prywatnosci" element={<PrivacyPolicyPage />} />
+      <Route path="/privacy" element={<PrivacyPolicyPage />} />
       <Route path="/rodo" element={<RodoPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

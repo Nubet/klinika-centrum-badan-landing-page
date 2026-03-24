@@ -6,14 +6,12 @@ import type {
   Trial,
 } from '../types/domain'
 
-const baseUrl = import.meta.env.BASE_URL
-
 export const navLinks: NavLink[] = [
-  { label: 'Dla Pacjenta', href: `${baseUrl}#dla-pacjenta` },
-  { label: 'Aktualne Badania', href: `${baseUrl}#badania` },
-  { label: 'Dla Sponsorów & CRO', href: `${baseUrl}#dla-sponsora` },
-  { label: 'Nasze Zaplecze', href: `${baseUrl}#zaplecze` },
-  { label: 'Kontakt', href: `${baseUrl}#kontakt` },
+  { label: 'Dla Pacjenta', to: '/?section=dla-pacjenta' },
+  { label: 'Aktualne Badania', to: '/?section=badania' },
+  { label: 'Dla Sponsorów & CRO', to: '/?section=dla-sponsora' },
+  { label: 'Nasze Zaplecze', to: '/?section=zaplecze' },
+  { label: 'Kontakt', to: '/?section=kontakt' },
 ]
 
 export const benefits: Benefit[] = [
@@ -83,23 +81,23 @@ export const footerColumns: FooterColumn[] = [
   {
     title: 'Dla Pacjenta',
     links: [
-      { label: 'Aktualne programy', href: `${baseUrl}#badania` },
-      { label: 'Dlaczego warto wziąć udział?', href: `${baseUrl}#dla-pacjenta` },
+      { label: 'Aktualne programy', to: '/?section=badania' },
+      { label: 'Dlaczego warto wziąć udział?', to: '/?section=dla-pacjenta' },
     ],
   },
   {
     title: 'Dla Sponsorów',
     links: [
-      { label: 'Szybka rekrutacja', href: `${baseUrl}#zaplecze` },
-      { label: 'Zaplecze techniczne', href: `${baseUrl}#zaplecze` },
+      { label: 'Szybka rekrutacja', to: '/?section=zaplecze' },
+      { label: 'Zaplecze techniczne', to: '/?section=zaplecze' },
     ],
   },
   {
     title: 'Ośrodek',
     links: [
-      { label: 'Kontakt', href: `${baseUrl}#kontakt` },
-      { label: 'Polityka prywatności', href: `${baseUrl}polityka-prywatnosci` },
-      { label: 'RODO', href: `${baseUrl}rodo` },
+      { label: 'Kontakt', to: '/?section=kontakt' },
+      { label: 'Polityka prywatności', to: '/polityka-prywatnosci' },
+      { label: 'RODO', to: '/rodo' },
     ],
   },
 ]
